@@ -53,7 +53,7 @@ QLayout *MainWidget::makeLayouts(int children, int depth, QLayout *parent) const
     auto *layout = new QBoxLayout((depth & 1) ? QBoxLayout::LeftToRight : QBoxLayout::TopToBottom);
     layout->setMargin(1);
     layout->setSpacing(0);
-    layout->setObjectName(QString::number(objects_count++));
+    layout->setObjectName(QLatin1Char('l') + QString::number(objects_count++));
     for (int i = 0; i < children; i++) {
         auto *child = makeLayouts(children, depth - 1, layout);
         if (child)
