@@ -1,7 +1,7 @@
 #ifndef MYSPLITTER_H
 #define MYSPLITTER_H
 
-#include <QtWidgets>
+#include <QtWidgets/qsplitter.h>
 
 class MySplitter : public QSplitter
 {

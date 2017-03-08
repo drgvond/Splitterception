@@ -1,4 +1,5 @@
 #include "mysplitter.h"
+#include <QtGui/qevent.h>
 
 MySplitter::MySplitter(Qt::Orientation o, QWidget *parent)
     : QSplitter(o, parent)

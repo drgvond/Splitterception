@@ -1,6 +1,6 @@
 #include "colorwidget.h"
-#include <QtGui>
-#include <qdebug.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
 
 int ColorWidget::widget_count = 0;
 const Qt::GlobalColor ColorWidget::colors[] = { Qt::red, Qt::green, Qt::magenta, Qt::cyan, /*Qt::blue,*/ Qt::yellow };

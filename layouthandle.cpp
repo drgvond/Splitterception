@@ -1,4 +1,7 @@
 #include "layouthandle.h"
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qboxlayout.h>
 
 LayoutHandle::LayoutHandle(QBoxLayout *layout)
     : QWidget(), m_layout(layout)
@@ -75,6 +78,7 @@ void LayoutHandle::mouseMoveEvent(QMouseEvent *e)
 
 void LayoutHandle::mouseReleaseEvent(QMouseEvent *e)
 {
+    Q_UNUSED(e);
 }
 
 void LayoutHandle::mouseDoubleClickEvent(QMouseEvent *e)

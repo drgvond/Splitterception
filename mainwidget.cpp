@@ -2,7 +2,7 @@
 #include "colorwidget.h"
 #include "mysplitter.h"
 #include "layouthandle.h"
-#include <QtWidgets>
+#include <QtWidgets/qboxlayout.h>
 
 int MainWidget::objects_count = 0;
 bool MainWidget::call_winId = false;

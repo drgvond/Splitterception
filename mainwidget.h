@@ -1,7 +1,7 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include <QWidget>
+#include <QtWidgets/qwidget.h>
 
 class MainWidget : public QWidget
 {

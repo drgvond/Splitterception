@@ -1,11 +1,10 @@
 #include "eventspy.h"
-#include <qdebug.h>
-#include <QtEvents>
-#include <QtCore>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qdebug.h>
+#include <QtGui/qevent.h>
 
 EventSpy::EventSpy(QObject *parent) : QObject(parent), m_paint_event_expected(false)
 {
-
 }
 
 bool EventSpy::eventFilter(QObject *receiver, QEvent *event)

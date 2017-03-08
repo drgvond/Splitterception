@@ -1,7 +1,7 @@
 #ifndef EVENTSPY_H
 #define EVENTSPY_H
 
-#include <QObject>
+#include <QtCore/qobject.h>
 
 class EventSpy : public QObject
 {

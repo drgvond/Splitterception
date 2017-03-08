@@ -1,7 +1,7 @@
 #ifndef COLORWIDGET_H
 #define COLORWIDGET_H
 
-#include <QWidget>
+#include <QtWidgets/qwidget.h>
 
 class ColorWidget : public QWidget
 {

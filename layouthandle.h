@@ -1,7 +1,9 @@
 #ifndef LAYOUTHANDLE_H
 #define LAYOUTHANDLE_H
 
-#include <QtWidgets>
+#include <QtWidgets/qwidget.h>
+
+class QBoxLayout;
 
 class LayoutHandle : public QWidget
 {
