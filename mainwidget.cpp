@@ -5,10 +5,13 @@
 #include <QtWidgets>
 
 int MainWidget::objects_count = 0;
+bool MainWidget::call_winId = false;
 
 MainWidget::MainWidget(bool use_splitters, QWidget *parent)
     : QWidget(parent)
 {
+    objects_count = 0;
+
     if (use_splitters) {
         auto *layout = new QVBoxLayout;
         layout->setMargin(0);
@@ -17,7 +20,6 @@ MainWidget::MainWidget(bool use_splitters, QWidget *parent)
     } else {
         setLayout(makeLayouts(3, 5));
     }
-    objects_count = 0;
 }
 
 MainWidget::~MainWidget()
@@ -29,7 +31,8 @@ QWidget *MainWidget::makeSplitters(int children, int depth) const
 {
     if (depth == 0) {
         auto *w = new ColorWidget();
-//        w->winId();
+        if (call_winId)
+            w->winId();
         return w;
     }
 
@@ -45,7 +48,8 @@ QLayout *MainWidget::makeLayouts(int children, int depth, QLayout *parent) const
 {
     if (depth == 0) {
         auto *w = new ColorWidget();
-//        w->winId();
+        if (call_winId)
+            w->winId();
         parent->addWidget(w);
         return nullptr;
     }
