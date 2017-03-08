@@ -14,8 +14,6 @@ public:
     QWidget *makeSplitters(int children, int depth) const;
     QLayout *makeLayouts(int children, int depth, QLayout *parent = nullptr) const;
 
-    void mouseDoubleClickEvent(QMouseEvent *e) override;
-
 private:
     static int objects_count;
 };

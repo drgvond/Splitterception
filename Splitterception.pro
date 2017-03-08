@@ -27,9 +27,11 @@ SOURCES += main.cpp\
         mainwidget.cpp \
     colorwidget.cpp \
     eventspy.cpp \
-    mysplitter.cpp
+    mysplitter.cpp \
+    layouthandle.cpp
 
 HEADERS  += mainwidget.h \
     colorwidget.h \
     eventspy.h \
-    mysplitter.h
+    mysplitter.h \
+    layouthandle.h

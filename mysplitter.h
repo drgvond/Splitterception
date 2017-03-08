@@ -21,19 +21,4 @@ public:
     void mouseDoubleClickEvent(QMouseEvent *e) override;
 };
 
-class MyLayoutHandle : public QWidget
-{
-    Q_OBJECT
-public:
-    MyLayoutHandle(QBoxLayout *layout);
-
-    QSize sizeHint() const override;
-    void paintEvent(QPaintEvent *e) override;
-    void mouseDoubleClickEvent(QMouseEvent *e) override;
-
-private:
-    Qt::Orientation m_orientation;
-    QBoxLayout *m_layout;
-};
-
 #endif // MYSPLITTER_H

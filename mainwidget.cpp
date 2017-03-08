@@ -1,6 +1,7 @@
 #include "mainwidget.h"
 #include "colorwidget.h"
 #include "mysplitter.h"
+#include "layouthandle.h"
 #include <QtWidgets>
 
 int MainWidget::objects_count = 0;
@@ -28,7 +29,7 @@ QWidget *MainWidget::makeSplitters(int children, int depth) const
 {
     if (depth == 0) {
         auto *w = new ColorWidget();
-        w->winId();
+//        w->winId();
         return w;
     }
 
@@ -44,7 +45,7 @@ QLayout *MainWidget::makeLayouts(int children, int depth, QLayout *parent) const
 {
     if (depth == 0) {
         auto *w = new ColorWidget();
-        w->winId();
+//        w->winId();
         parent->addWidget(w);
         return nullptr;
     }
@@ -53,36 +54,19 @@ QLayout *MainWidget::makeLayouts(int children, int depth, QLayout *parent) const
     layout->setMargin(1);
     layout->setSpacing(0);
     layout->setObjectName(QString::number(objects_count++));
-    for (int i = 0; i < children; i++)
-        if (auto *child = makeLayouts(children, depth - 1, layout)) {
-            if (i > 0) {
-                auto *handle = new MyLayoutHandle(layout);
-                layout->addWidget(handle);
-            }
+    for (int i = 0; i < children; i++) {
+        auto *child = makeLayouts(children, depth - 1, layout);
+        if (child)
             layout->addLayout(child);
+        if (i < children - 1) {
+            auto *handle = new LayoutHandle(layout);
+            const QLatin1String prefix("layout_handle_");
+            const QString &siblingName = child ? child->objectName()
+                                         : layout->itemAt(layout->count() - 1)->widget()->objectName();
+            handle->setObjectName(prefix + siblingName);
+            layout->addWidget(handle);
         }
-
-    return layout;
-}
-
-void MainWidget::mouseDoubleClickEvent(QMouseEvent *e)
-{
-    auto *l0 = layout()->itemAt(0)->layout();
-    if (!l0)
-        return;
-    auto g0 = l0->geometry();
-    auto *l1 = layout()->itemAt(1)->layout();
-    if (!l1)
-        l1 = layout()->itemAt(2)->layout();
-    auto g1 = l1->geometry();
-    if (e->button() == Qt::LeftButton) {
-        g0.setWidth(g0.width() + 10);
-        g1.setLeft(g1.left() + 10);
-    } else if (e->button() == Qt::RightButton) {
-        g0.setWidth(g0.width() - 10);
-        g1.setLeft(g1.left() - 10);
     }
 
-    l0->setGeometry(g0);
-    l1->setGeometry(g1);
+    return layout;
 }
