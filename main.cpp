@@ -11,8 +11,6 @@ int main(int argc, char *argv[])
     splittersWidget.setWindowTitle("Splitters");
     splittersWidget.show();
 
-    ColorWidget::resetCount();
-
     MainWidget layoutsWidget(false);
     layoutsWidget.setWindowTitle("Layouts");
     layoutsWidget.show();

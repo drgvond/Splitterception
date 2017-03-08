@@ -11,6 +11,7 @@ MainWidget::MainWidget(bool use_splitters, QWidget *parent)
     : QWidget(parent)
 {
     objects_count = 0;
+    ColorWidget::resetCount();
 
     if (use_splitters) {
         auto *layout = new QVBoxLayout;
