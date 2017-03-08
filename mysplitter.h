@@ -19,6 +19,7 @@ public:
     MySplitterHandle(Qt::Orientation o, QSplitter *parent);
 
     void mouseDoubleClickEvent(QMouseEvent *e) override;
+    void paintEvent(QPaintEvent *e) override;
 };
 
 #endif // MYSPLITTER_H
